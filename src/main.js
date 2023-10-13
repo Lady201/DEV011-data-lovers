@@ -1,6 +1,7 @@
 // import { type } from './dataFunctions.js';
 import data from "./data/pokemon/pokemon.js";
 import { filterByResistant, filterByType } from "./dataFunctions.js";
+import { renderItems } from "./view.js";
 
 // console.log(filterType(data.pokemon, "grass"));
 
@@ -59,6 +60,28 @@ filterResistant.addEventListener("change", function () {
   });
 });
 
+const selectSort = document.getElementById("select-sort");
+
+selectSort.addEventListener("change", function () {
+  console.log ("luna")
+  const sortValue = selectSort.value;
+  let sortedData = [...pokemons]; // Clonar la data original
+
+  if (sortValue === "name") {
+    sortedData.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortValue === "name-desc") {
+    sortedData.sort((a, b) => b.name.localeCompare(a.name));
+  }
+  // Agrega más condiciones para otras propiedades de ordenamiento si es necesario
+  else {
+    // Si no se selecciona ninguna propiedad de ordenamiento válida, muestra la data sin cambios
+    renderItems(sortedData);
+    return;
+  }
+
+  // Renderizar la data ordenada
+  renderItems(sortedData);
+});
 
 
 const limpiarBusqueda = document.getElementById("limpiarBusqueda");
@@ -88,3 +111,4 @@ limpiarBusqueda.addEventListener("click", function () {
     pokemonsContainer.appendChild(pokemonCard);
   });
 });
+ 

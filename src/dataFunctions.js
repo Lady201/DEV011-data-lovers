@@ -25,3 +25,4 @@ export const filterByResistant = (pokemons, value) => {
 /*investigar método filter y aplicar a data
   filterBy, valor para filtrar (nombre,tipo)
   value, condición que se cumple*/
+  
