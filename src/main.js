@@ -63,7 +63,6 @@ filterResistant.addEventListener("change", function () {
 const selectSort = document.getElementById("select-sort");
 
 selectSort.addEventListener("change", function () {
-  console.log ("luna")
   const sortValue = selectSort.value;
   let sortedData = [...pokemons]; // Clonar la data original
 
@@ -97,6 +96,9 @@ limpiarBusqueda.addEventListener("click", function () {
     "select[data-testid='filter-resistant']"
   );
   filterResistant.selectedIndex = 0;
+
+  const selectSort = document.getElementById("select-sort");
+   selectSort.selectedIndex = 0;
 
   // Vuelve a mostrar todos los Pokémon sin filtros
   pokemonsContainer.innerHTML = "";
