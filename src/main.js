@@ -1,6 +1,11 @@
 // import { type } from './dataFunctions.js';
 import data from "./data/pokemon/pokemon.js";
-import { filterByResistant, filterByType } from "./dataFunctions.js";
+import {
+  filterByName,
+  filterByResistant,
+  filterByType,
+  averageWeight,
+} from "./dataFunctions.js";
 import { renderItems } from "./view.js";
 
 // console.log(filterType(data.pokemon, "grass"));
@@ -99,18 +104,35 @@ limpiarBusqueda.addEventListener("click", function () {
 
   const selectSort = document.getElementById("select-sort");
    selectSort.selectedIndex = 0;
-
+)
   // Vuelve a mostrar todos los Pokémon sin filtros
   pokemonsContainer.innerHTML = "";
-  pokemons.forEach((pokemon) => {
+  pokemons.forEach((pokemon)) => {
+    
+const nameInput = document.querySelector("input[id='name']");
+
+const btnBuscar = document.querySelector("button[id='buscar']");
+btnBuscar.addEventListener("click", function () {
+  const byName = nameInput.value;
+  const pokemonsByName = filterByName(pokemons, byName);
+  pokemonsContainer.innerHTML = "";
+  pokemonsByName.forEach((pokemon) => {
     const pokemonCard = document.createElement("li");
     pokemonCard.setAttribute("class", "contenedor-imagen-pokemon");
     pokemonCard.innerHTML = `
       <p class="pokename">${pokemon.name}</p>
       <img class="img-pokemon" id="imagePokemon" src="${pokemon.img}"> 
       <p class="poketipo">${pokemon.type}<p>
-    `;
+      `;
     pokemonsContainer.appendChild(pokemonCard);
   });
 });
  
+
+const averagePokemonWeight = document.querySelector(
+  "h2[data-testid='Average-weight']"
+);
+const averagePokemonWeightValue = averageWeight(pokemons);
+averagePokemonWeight.innerHTML =
+  "Average Pokemon Weight: " + averagePokemonWeightValue;
+

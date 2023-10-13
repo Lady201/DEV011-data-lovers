@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Autour+One&display=swap");
+
 .fondo {
   background-color: rgb(196, 248, 250);
 }
 
 .imagenheader {
-  width: 600px;
+  width: 500px;
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -94,7 +96,36 @@ h1 {
   display: inline-block;
 }
 
-.selectorcontainer{
+.selectorcontainer {
   display: flex; /* los siguientes tres son necesarios para centrar y acomodar */
   align-items: center;
+}
+
+.nav-container {
+  display: grid;
+  font-family: "Autour One";
+  font-style: normal;
+  color: rgb(195, 195, 195);
+  border: 4px;
+  justify-content: space-around;
+  align-items: center;
+  background: #cfff60;
+  padding: 01% 01% 01% 01%;
+  text-align: center;
+  margin-left: 20px;
+  border: 10px;
+  border-color: #da5151;
+  border-radius: 10px;
+  background-image: url("imagenes/pngtree-lynx-summer-green-banner-background-image_155644.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+.average {
+  font-size: 120%;
+}
+
+.name {
+  border-radius: 10px;
 }
