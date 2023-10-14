@@ -10,6 +10,10 @@ import { renderItems } from "./view.js";
 // console.log(filterType(data.pokemon, "grass"));
 
 const pokemons = data.pokemon;
+const nombreBusqueda = "";
+const tipoBusqueda = "";
+const tipoResistencia = "";
+const ordenAsc ="";
 
 const pokemonsContainer = document.getElementById("pokemonsContainer");
 
