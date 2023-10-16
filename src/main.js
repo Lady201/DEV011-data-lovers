@@ -1,70 +1,91 @@
 // import { type } from './dataFunctions.js';
 import data from "./data/pokemon/pokemon.js";
 import {
-  filterByName,
-  filterByResistant,
-  filterByType,
+  filterData,
   averageWeight,
+  sortData,
 } from "./dataFunctions.js";
-
-// console.log(filterType(data.pokemon, "grass"));
+import { renderItems } from "./view.js";
 
 const pokemons = data.pokemon;
 
+let allData = pokemons;
+
+// Selectores del DOM
 const pokemonsContainer = document.getElementById("pokemonsContainer");
-
-pokemonsContainer.innerHTML = "";
-pokemons.forEach((pokemon) => {
-  const pokemonCard = document.createElement("li");
-  pokemonCard.setAttribute("class", "contenedor-imagen-pokemon");
-  pokemonCard.innerHTML = `
-  <p class="pokename">${pokemon.name}</p>
-      <img class="img-pokemon" id="imagePokemon" src="${pokemon.img}"> 
-      <p class="poketipo">${pokemon.type}<p>
-      `;
-  pokemonsContainer.appendChild(pokemonCard);
-});
-/*const NumberCount = document.querySelector("li[data-testid='number-count']");*/
-
 const filterType = document.querySelector("select[data-testid='filter-type']");
-
-filterType.addEventListener("change", function () {
-  const selectValue = filterType.value;
-  const pokemonsFiltered = filterByType(pokemons, selectValue);
-  pokemonsContainer.innerHTML = "";
-  pokemonsFiltered.forEach((pokemon) => {
-    const pokemonCard = document.createElement("li");
-    pokemonCard.setAttribute("class", "contenedor-imagen-pokemon");
-    pokemonCard.innerHTML = `
-  <p class="pokename">${pokemon.name}</p>
-      <img class="img-pokemon" id="imagePokemon" src="${pokemon.img}"> 
-      <p class="poketipo">${pokemon.type}<p>
-      `;
-    pokemonsContainer.appendChild(pokemonCard);
-  });
-});
-
 const filterResistant = document.querySelector(
   "select[data-testid='filter-resistant']"
 );
+const nameInput = document.querySelector("input[id='name']");
+const selectOrder = document.querySelector("select[data-testid='select-sort']");
+const averagePokemonWeight = document.querySelector(
+  "h2[data-testid='Average-weight']"
+);
+const limpiarBusqueda = document.getElementById("limpiarBusqueda");
 
-filterResistant.addEventListener("change", function () {
-  const selectValue = filterResistant.value;
-  const pokemonsFiltered = filterByResistant(pokemons, selectValue);
-  pokemonsContainer.innerHTML = "";
-  pokemonsFiltered.forEach((pokemon) => {
-    const pokemonCard = document.createElement("li");
-    pokemonCard.setAttribute("class", "contenedor-imagen-pokemon");
-    pokemonCard.innerHTML = `
-  <p class="pokename">${pokemon.name}</p>
-      <img class="img-pokemon" id="imagePokemon" src="${pokemon.img}"> 
-      <p class="poketipo">${pokemon.type}<p>
-      `;
-    pokemonsContainer.appendChild(pokemonCard);
-  });
+//Eventos del DOM
+window.addEventListener("load", () => {
+  renderItems(allData);
+  const averagePokemonWeightValue = averageWeight(pokemons);
+  averagePokemonWeight.innerHTML =
+    "Average Pokemon Weight: " + averagePokemonWeightValue;
+});
+//Filtar por tipo
+filterType.addEventListener("change", function () {
+  const selectValue = filterType.value;
+  allData = filterData(allData, "type", selectValue);
+  console.log("tipo: ", allData);
+  if (allData.length > 0) {
+    renderItems(allData);
+  } else {
+    console.log("contenedor: ", pokemonsContainer);
+    pokemonsContainer.innerHTML =
+      'No hay coincidencias, "click en limpiar búsqueda"';
+  }
 });
 
-const limpiarBusqueda = document.getElementById("limpiarBusqueda");
+//Filtrar por resistencia
+filterResistant.addEventListener("change", function () {
+  const selectValue = filterResistant.value;
+  allData = filterData(allData, "resistant", selectValue);
+  console.log("resistant", allData);
+
+  if (allData.length > 0) {
+    renderItems(allData);
+  } else {
+    pokemonsContainer.innerHTML =
+      '<p>No hay coincidencias, "click en limpiar búsqueda"</p>';
+  }
+});
+
+//Búsqueda
+nameInput.addEventListener("input", function () {
+  const byName = nameInput.value;
+  allData = filterData(allData, "name", byName);
+  console.log("search", allData);
+
+  if (allData.length > 0) {
+    renderItems(allData);
+  } else {
+    pokemonsContainer.innerHTML =
+      '<p>No hay coincidencias, "click en limpiar búsqueda"</p>';
+  }
+});
+
+//Ordenar asc y desc
+selectOrder.addEventListener("change", (event) => {
+  const option = event.target.value;
+  allData = sortData(allData, "name", option);
+  console.log("order: ", allData);
+
+  if (allData.length > 0) {
+    renderItems(allData);
+  } else {
+    pokemonsContainer.innerHTML =
+      '<p>No hay coincidencias, "click en limpiar búsqueda"</p>';
+  }
+});
 
 limpiarBusqueda.addEventListener("click", function () {
   // Restablece los filtros a su estado predeterminado
@@ -79,32 +100,6 @@ limpiarBusqueda.addEventListener("click", function () {
   filterResistant.selectedIndex = 0;
 
   // Vuelve a mostrar todos los Pokémon sin filtros
-  pokemonsContainer.innerHTML = "";
-  pokemons.forEach((pokemon) => {
-    
-const nameInput = document.querySelector("input[id='name']");
-
-const btnBuscar = document.querySelector("button[id='buscar']");
-btnBuscar.addEventListener("click", function () {
-  const byName = nameInput.value;
-  const pokemonsByName = filterByName(pokemons, byName);
-  pokemonsContainer.innerHTML = "";
-  pokemonsByName.forEach((pokemon) => {
-    const pokemonCard = document.createElement("li");
-    pokemonCard.setAttribute("class", "contenedor-imagen-pokemon");
-    pokemonCard.innerHTML = `
-      <p class="pokename">${pokemon.name}</p>
-      <img class="img-pokemon" id="imagePokemon" src="${pokemon.img}"> 
-      <p class="poketipo">${pokemon.type}<p>
-      `;
-    pokemonsContainer.appendChild(pokemonCard);
-  });
+  allData = pokemons;
+  renderItems(allData);
 });
-
-const averagePokemonWeight = document.querySelector(
-  "h2[data-testid='Average-weight']"
-);
-const averagePokemonWeightValue = averageWeight(pokemons);
-averagePokemonWeight.innerHTML =
-  "Average Pokemon Weight: " + averagePokemonWeightValue;
-

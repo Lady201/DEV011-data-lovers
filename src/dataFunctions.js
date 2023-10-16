@@ -1,31 +1,27 @@
-// estas funciones son de ejemplo
-
-export const example = () => {
-  return "example";
-};
-
-export const anotherExample = () => {
-  return [];
-};
-
-export const filterByType = (pokemons, value) => {
+export const filterData = (pokemons, filterBy, value) => {
+  if(value === 'all'){
+    return pokemons
+  }
   const pokemonsByType = pokemons.filter((pokemon) =>
-    pokemon.type.includes(value)
+    pokemon[filterBy].includes(value)
   );
   return pokemonsByType;
 };
 
 export const filterByResistant = (pokemons, value) => {
+  if(value === 'all'){
+    return pokemons
+  }
   const pokemonsByResistant = pokemons.filter((pokemon) =>
     pokemon.resistant.includes(value)
   );
   return pokemonsByResistant;
 };
 
-/*investigar método filter y aplicar a data
-  filterBy, valor para filtrar (nombre,tipo)
-  value, condición que se cumple*/
 export const filterByName = (pokemons, value) => {
+  if(value === 'all'){
+    return pokemons
+  }
   const pokemonsByName = pokemons.filter((pokemon) =>
     pokemon.name.includes(value)
   );
@@ -35,9 +31,22 @@ export const filterByName = (pokemons, value) => {
 export const averageWeight = (pokemons) => {
   const pokemonsWeight = pokemons.map((pokemon) =>
     parseFloat(pokemon.size.weight)
+    //parseFloat analiza una cadena de strings y las convierte en un número decimal.
   );
 
   return (
     (pokemonsWeight.reduce((acc, item) => acc + item, 0) / pokemonsWeight.length).toFixed(2)
   );
 };
+
+
+export const sortData = (data, sortBy, sortOrder) => {
+  const cloneData = [...data]
+  if (sortOrder === "asc") {
+    cloneData.sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
+  } else if (sortOrder=== "desc") {
+    cloneData.sort((a, b) => b[sortBy].localeCompare(a[sortBy]));
+  }
+  return cloneData
+}
+

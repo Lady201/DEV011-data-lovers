@@ -5,7 +5,7 @@
 }
 
 .imagenheader {
-  width: 500px;
+  width: 600px;
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -96,7 +96,7 @@ h1 {
   display: inline-block;
 }
 
-.selectorcontainer {
+.selectorcontainer{
   display: flex; /* los siguientes tres son necesarios para centrar y acomodar */
   align-items: center;
 }
