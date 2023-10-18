@@ -26,7 +26,8 @@ h1 {
 }
 
 .centrar {
-  display: flex; /* los siguientes tres son necesarios para centrar y acomodar */
+  display: flex;
+  /* los siguientes tres son necesarios para centrar y acomodar */
   justify-content: space-around;
   align-items: center;
 }
@@ -43,16 +44,14 @@ h1 {
   border: 2px solid #ffffff;
   margin: 10px;
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(23, 121, 9, 1) 0%,
-    rgba(90, 206, 86, 1) 3%,
-    rgba(150, 255, 187, 1) 25%,
-    rgba(182, 255, 219, 1) 44%,
-    rgba(2, 238, 144, 0.468312324929972) 89%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(23, 121, 9, 1) 0%,
+      rgba(90, 206, 86, 1) 3%,
+      rgba(150, 255, 187, 1) 25%,
+      rgba(182, 255, 219, 1) 44%,
+      rgba(2, 238, 144, 0.468312324929972) 89%,
+      rgba(0, 212, 255, 1) 100%);
   border-radius: 10px;
   padding: 5px 18px;
   height: auto;
@@ -78,11 +77,9 @@ h1 {
   font-size: 100%;
   border: 2px solid white;
   background: rgb(195, 193, 34);
-  background: linear-gradient(
-    0deg,
-    rgba(195, 193, 34, 1) 0%,
-    rgba(253, 45, 172, 1) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(195, 193, 34, 1) 0%,
+      rgba(253, 45, 172, 1) 100%);
   position: center;
   border-radius: 5px;
 }
@@ -96,8 +93,9 @@ h1 {
   display: inline-block;
 }
 
-.selectorcontainer{
-  display: flex; /* los siguientes tres son necesarios para centrar y acomodar */
+.selectorcontainer {
+  display: flex;
+  /* los siguientes tres son necesarios para centrar y acomodar */
   align-items: center;
 }
 
@@ -122,10 +120,32 @@ h1 {
   background-repeat: no-repeat;
   background-attachment: scroll;
 }
+
 .average {
   font-size: 120%;
 }
 
 .name {
   border-radius: 10px;
+}
+
+
+#creadoras {
+  font-family: serif;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Estilos para el footer */
+footer {
+  text-align: center;
+}
+
+img {
+  width: 50px;
+  /* Tamaño personalizado */
+  height: 50px;
+  /* Tamaño personalizado */
+  margin-right: 10px;
+  /* Espacio entre la imagen y el texto */
 }
