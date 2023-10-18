@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html>
-
+  
 <head>
   <meta charset="utf-8">
   <title>Pokemon</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
-  <script src="main.js" type="module"></script>
-  <header id="bienvenida">
 
-    <body class="fondoH">
-      <img class="imagenheader" src="imagenes/International_Pokémon_logo.svg.png" alt="Pokedex" />
-      <div class="centrar">
-        <h1>¡Bienvenida a esta fantástica aventura!</h1>
-  </header>
-  </div>
+<body class="fondoH">
+  <header id="bienvenida">
+    <img src="./imagenes/bannerpoke.png" alt=" Pokedex" class="imagenheader">
+    <div class="centrar">
+      <h1>¡Bienvenida a esta fantástica aventura!</h1>
+    </div>
   </header>
   <div class="nav-container">
     <div class="by-name">
       <label for="nombre">Search by Name:</label>
       <input type="text" id="name" placeholder="Nombre">
-      <button id="buscar">Buscar</button>
     </div>
     <div class="selectorcontainer">
       <h2>Type</h2>
       <select data-testid="filter-type" class="select-filter" name="type">
-        <option value="all"> </option>
+        <option value="all">All</option>
         <option value="fire">Fire</option>
         <option value="water">Water</option>
         <option value="grass">Grass</option>
@@ -46,11 +42,11 @@
         <option value="fairy">Fairy</option>
         <option value="steel">Steel</option>
         <option value="dark">Dark</option>
-        <!-- Agrega más opciones según sea necesario -->
+        <!-- Agrega más opciones según sea necesario -->
       </select>
       <h2> Resistant </h2>
       <select data-testid="filter-resistant" class="select-filter" name="resistant">
-        <option value="all"></option>
+        <option value="all">All</option>
         <option value="fire">Fire</option>
         <option value="water">Water</option>
         <option value="grass">Grass</option>
@@ -71,25 +67,22 @@
         <option value="steel">Steel</option>
         <option value="dark">Dark</option>
       </select>
+      <label for="select-sort">Ordenar por:</label>
+      <select id="select-sort" data-testid="select-sort" name="sort-property">
+        <option value="">Aleatorio</option>
+        <option value="asc">Nombre A - Z</option>
+        <option value="desc">Nombre Z - A</option>
+      </select>
+      <div class="button-container">
+        <button id="limpiarBusqueda" data-testid="limpiar-busqueda">Limpiar Búsqueda</button>
+      </div>
+      <h2 data-testid="Average-weight" class="average">Average Pokemon Weight</h2>
     </div>
-
-    <label for="select-sort">Ordenar por:</label>
-    <select id="select-sort" data-testid="select-sort" name="sort-property">
-      <option value="name">Nombre A - Z</option>
-      <option value="name-desc">Nombre Z - A</option>
-      <!-- Agrega opciones para otras propiedades si es necesario -->
-    </select>
-    <div class="button-container">
-      <button id="limpiarBusqueda" data-testid="limpiar-busqueda">Limpiar Búsqueda</button>
-    </div>
-    </select>
-    <h2 data-testid="Average-weight" class="average">Average Pokemon Weight</h2>
   </div>
+  <div class="pokemons-container" id="root">
   </div>
-  </div>
-  <div class="pokemons-container">
-    <ul id="pokemonsContainer" class="contenedor-pokemons"></ul>
-  </div>
+  <footer>Developed by Paulina González y Massiel Quintanilla</footer>
+  <script src="main.js" type="module"></script>
 </body>
-
+  
 </html>
