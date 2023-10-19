@@ -12,7 +12,7 @@ const pokemons = data.pokemon;
 let allData = pokemons;
 
 // Selectores del DOM
-const pokemonsContainer = document.getElementById("pokemonsContainer");
+const pokemonsContainerRoot = document.getElementById("root");
 const filterType = document.querySelector("select[data-testid='filter-type']");
 const filterResistant = document.querySelector(
   "select[data-testid='filter-resistant']"
@@ -26,7 +26,8 @@ const limpiarBusqueda = document.getElementById("limpiarBusqueda");
 
 //Eventos del DOM
 window.addEventListener("load", () => {
-  renderItems(allData);
+  pokemonsContainerRoot.innerHTML = ' '
+  pokemonsContainerRoot.appendChild(renderItems(allData));
   const averagePokemonWeightValue = averageWeight(pokemons);
   averagePokemonWeight.innerHTML =
     "Average Pokemon Weight: " + averagePokemonWeightValue;
@@ -37,11 +38,13 @@ filterType.addEventListener("change", function () {
   allData = filterData(allData, "type", selectValue);
   console.log("tipo: ", allData);
   if (allData.length > 0) {
-    renderItems(allData);
+    console.log("contenedor: ", pokemonsContainerRoot);
+    const pokemons = renderItems(allData);
+    pokemonsContainerRoot.innerHTML = ' '
+    pokemonsContainerRoot.appendChild(pokemons)
   } else {
-    console.log("contenedor: ", pokemonsContainer);
-    pokemonsContainer.innerHTML =
-      'No hay coincidencias, "click en limpiar búsqueda"';
+    console.log("contenedor no: ", pokemonsContainerRoot);
+    pokemonsContainerRoot.innerHTML = 'No hay coincidencias, "click en limpiar búsqueda"';
   }
 });
 
@@ -52,10 +55,11 @@ filterResistant.addEventListener("change", function () {
   console.log("resistant", allData);
 
   if (allData.length > 0) {
-    renderItems(allData);
+    const pokemons = renderItems(allData);
+    pokemonsContainerRoot.innerHTML = ' '
+    pokemonsContainerRoot.appendChild(pokemons)
   } else {
-    pokemonsContainer.innerHTML =
-      '<p>No hay coincidencias, "click en limpiar búsqueda"</p>';
+    pokemonsContainerRoot.innerHTML = '<p>No hay coincidencias, "click en limpiar búsqueda"</p>';
   }
 });
 
@@ -66,9 +70,11 @@ nameInput.addEventListener("input", function () {
   console.log("search", allData);
 
   if (allData.length > 0) {
-    renderItems(allData);
+    const pokemons = renderItems(allData);
+    pokemonsContainerRoot.innerHTML = ' '
+    pokemonsContainerRoot.appendChild(pokemons)
   } else {
-    pokemonsContainer.innerHTML =
+    pokemonsContainerRoot.innerHTML =
       '<p>No hay coincidencias, "click en limpiar búsqueda"</p>';
   }
 });
@@ -80,14 +86,17 @@ selectOrder.addEventListener("change", (event) => {
   console.log("order: ", allData);
 
   if (allData.length > 0) {
-    renderItems(allData);
+    const pokemons = renderItems(allData);
+    pokemonsContainerRoot.innerHTML = ' '
+    pokemonsContainerRoot.appendChild(pokemons)
   } else {
-    pokemonsContainer.innerHTML =
+    pokemonsContainerRoot.innerHTML =
       '<p>No hay coincidencias, "click en limpiar búsqueda"</p>';
   }
 });
 
 limpiarBusqueda.addEventListener("click", function () {
+  console.log('click');
   // Restablece los filtros a su estado predeterminado
   const filterType = document.querySelector(
     "select[data-testid='filter-type']"
@@ -101,5 +110,6 @@ limpiarBusqueda.addEventListener("click", function () {
 
   // Vuelve a mostrar todos los Pokémon sin filtros
   allData = pokemons;
-  renderItems(allData);
+  pokemonsContainerRoot.innerHTML = ' '
+  pokemonsContainerRoot.appendChild(renderItems(allData))
 });
