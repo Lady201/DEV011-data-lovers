@@ -141,11 +141,8 @@ footer {
   text-align: center;
 }
 
-img {
+.pokebola-img img {
   width: 50px;
-  /* Tamaño personalizado */
   height: 50px;
-  /* Tamaño personalizado */
-  margin-right: 10px;
-  /* Espacio entre la imagen y el texto */
+  /* Otros estilos deseados */
 }
