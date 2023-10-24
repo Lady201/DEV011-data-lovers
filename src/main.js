@@ -108,6 +108,14 @@ limpiarBusqueda.addEventListener("click", function () {
   );
   filterResistant.selectedIndex = 0;
 
+  const nameInput = document.querySelector("input[id='name']");
+  nameInput.value = ''; 
+
+  const selectOrder = document.querySelector("select[data-testid='select-sort']");
+  selectOrder.selectedIndex = 0;
+
+  
+
   // Vuelve a mostrar todos los Pokémon sin filtros
   allData = pokemons;
   pokemonsContainerRoot.innerHTML = ' '
