@@ -9,20 +9,20 @@
 
 
 <body class="fondoH">
-  <header id="bienvenida">
+  <header>
     <img src="./imagenes/bannerpoke.png" alt=" Pokedex" class="imagenheader">
     <div class="centrar">
-      <h1>¡Bienvenida a esta fantástica aventura!</h1>
+      <h1>Gotta catch 'em all!</h1>
     </div>
   </header>
   <div class="nav-container">
     <div class="by-name">
-      <label for="nombre">Search by Name:</label>
-      <input type="text" id="name" placeholder="Nombre">
+      <label for="nombre" >Search by Name:</label>
+      <input type="text" id="name" placeholder="Name">
     </div>
     <div class="selectorcontainer">
       <h2>Type</h2>
-      <select data-testid="filter-type" class="select-filter" name="type">
+      <select data-testid="filter-type" id="select-filter" name="type">
         <option value="all">All</option>
         <option value="fire">Fire</option>
         <option value="water">Water</option>
@@ -45,7 +45,7 @@
         <!-- Agrega más opciones según sea necesario -->
       </select>
       <h2> Resistant </h2>
-      <select data-testid="filter-resistant" class="select-filter" name="resistant">
+      <select data-testid="filter-resistant" id="select-filter" name="resistant">
         <option value="all">All</option>
         <option value="fire">Fire</option>
         <option value="water">Water</option>
@@ -67,21 +67,36 @@
         <option value="steel">Steel</option>
         <option value="dark">Dark</option>
       </select>
-      <label for="select-sort">Ordenar por:</label>
+      <label for="select-sort">Order for:</label>
       <select id="select-sort" data-testid="select-sort" name="sort-property">
-        <option value="">Aleatorio</option>
-        <option value="asc">Nombre A - Z</option>
-        <option value="desc">Nombre Z - A</option>
+        <option value="">Random</option>
+        <option value="asc">Name A - Z</option>
+        <option value="desc">Name Z - A</option>
       </select>
+    </div>
       <div class="button-container">
-        <button id="limpiarBusqueda" data-testid="limpiar-busqueda">Limpiar Búsqueda</button>
+        <button id="limpiarBusqueda" data-testid="limpiar-busqueda">Clear Search</button>
       </div>
       <h2 data-testid="Average-weight" class="average">Average Pokemon Weight</h2>
-    </div>
+    
   </div>
   <div class="pokemons-container" id="root">
   </div>
-  <footer>Developed by Paulina González y Massiel Quintanilla</footer>
+  <footer>
+
+    <div>
+      <p id="creadoras">  Developed by Paulina González 
+        <a href="https://github.com/Paugdev?tab=repositories" target="_blank">
+        <img class="pokebola-img" src="imagenes/clipart-pokeball-21.png" alt="Pokebola github"/>
+       </a> 
+       Massiell Quintanilla (Github Links) <a href="https://github.com/massiquintanilla20?tab=repositories" target="_blank">
+       <img class="pokebola-img" src="imagenes/clipart-pokeball-21.png" alt="Pokebola github" />
+       </a> 
+      </p>
+    
+    </div>
+      </footer>
+
   <script src="main.js" type="module"></script>
 </body>
   
