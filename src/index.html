@@ -1,103 +1,114 @@
 <!DOCTYPE html>
 <html>
-  
-<head>
-  <meta charset="utf-8">
-  <title>Pokemon</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-
-<body class="fondoH">
-  <header>
-    <img src="./imagenes/bannerpoke.png" alt=" Pokedex" class="imagenheader">
-    <div class="centrar">
-      <h1>Gotta catch 'em all!</h1>
-    </div>
-  </header>
-  <div class="nav-container">
-    <div class="by-name">
-      <label for="nombre" >Search by Name:</label>
-      <input type="text" id="name" placeholder="Name">
-    </div>
-    <div class="selectorcontainer">
-      <h2>Type</h2>
-      <select data-testid="filter-type" id="select-filter" name="type">
-        <option value="all">All</option>
-        <option value="fire">Fire</option>
-        <option value="water">Water</option>
-        <option value="grass">Grass</option>
-        <option value="bug">Bug</option>
-        <option value="flying">Flying</option>
-        <option value="poison">Poison</option>
-        <option value="normal">Normal</option>
-        <option value="electric">Electric</option>
-        <option value="ground">Ground</option>
-        <option value="psychic">Psychic</option>
-        <option value="fighting">Fighting</option>
-        <option value="rock">Rock</option>
-        <option value="ice">Ice</option>
-        <option value="ghost">Ghost</option>
-        <option value="dragon">Dragon</option>
-        <option value="fairy">Fairy</option>
-        <option value="steel">Steel</option>
-        <option value="dark">Dark</option>
-        <!-- Agrega más opciones según sea necesario -->
-      </select>
-      <h2> Resistant </h2>
-      <select data-testid="filter-resistant" id="select-filter" name="resistant">
-        <option value="all">All</option>
-        <option value="fire">Fire</option>
-        <option value="water">Water</option>
-        <option value="grass">Grass</option>
-        <option value="bug">Bug</option>
-        <option value="flying">Flying</option>
-        <option value="poison">Poison</option>
-        <option value="normal">Normal</option>
-        <option value="electric">Electric</option>
-        <option value="ground">Ground</option>
-        <option value="electric">Electric</option>
-        <option value="psychic">Psychic</option>
-        <option value="fighting">Fighting</option>
-        <option value="rock">Rock</option>
-        <option value="ice">Ice</option>
-        <option value="ghost">Ghost</option>
-        <option value="dragon">Dragon</option>
-        <option value="fairy">Fairy</option>
-        <option value="steel">Steel</option>
-        <option value="dark">Dark</option>
-      </select>
-      <label for="select-sort">Order for:</label>
-      <select id="select-sort" data-testid="select-sort" name="sort-property">
-        <option value="">Random</option>
-        <option value="asc">Name A - Z</option>
-        <option value="desc">Name Z - A</option>
-      </select>
-    </div>
-      <div class="button-container">
-        <button id="limpiarBusqueda" data-testid="limpiar-busqueda">Clear Search</button>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="fondoH">
+    <header>
+      <img
+        src="./imagenes/bannerpoke.png"
+        alt=" Pokedex"
+        class="imagenheader"
+      />
+      <div class="centrar">
+        <h1>¡Gotta catch 'em all!</h1>
       </div>
-      <h2 data-testid="Average-weight" class="average">Average Pokemon Weight</h2>
-    
-  </div>
-  <div class="pokemons-container" id="root">
-  </div>
-  <footer>
-
-    <div>
-      <p id="creadoras">  Developed by Paulina González 
-        <a href="https://github.com/Paugdev?tab=repositories" target="_blank">
-        <img class="pokebola-img" src="imagenes/clipart-pokeball-21.png" alt="Pokebola github"/>
-       </a> 
-       Massiell Quintanilla (Github Links) <a href="https://github.com/massiquintanilla20?tab=repositories" target="_blank">
-       <img class="pokebola-img" src="imagenes/clipart-pokeball-21.png" alt="Pokebola github" />
-       </a> 
-      </p>
-    
+    </header>
+    <div class="nav-container">
+      <div class="by-name">
+        <label for="nombre">Search by Name:</label>
+        <input type="text" id="name" placeholder="Nombre" />
+      </div>
+      <div class="selectorcontainer">
+        <h2>Type</h2>
+        <select data-testid="filter-type" class="select-filter" name="type">
+          <option value="all">All</option>
+          <option value="fire">Fire</option>
+          <option value="water">Water</option>
+          <option value="grass">Grass</option>
+          <option value="bug">Bug</option>
+          <option value="flying">Flying</option>
+          <option value="poison">Poison</option>
+          <option value="normal">Normal</option>
+          <option value="electric">Electric</option>
+          <option value="ground">Ground</option>
+          <option value="psychic">Psychic</option>
+          <option value="fighting">Fighting</option>
+          <option value="rock">Rock</option>
+          <option value="ice">Ice</option>
+          <option value="ghost">Ghost</option>
+          <option value="dragon">Dragon</option>
+          <option value="fairy">Fairy</option>
+          <option value="steel">Steel</option>
+          <option value="dark">Dark</option>
+          <!-- Agrega más opciones según sea necesario -->
+        </select>
+        <h2>Resistant</h2>
+        <select
+          data-testid="filter-resistant"
+          class="select-filter"
+          name="resistant"
+        >
+          <option value="all">All</option>
+          <option value="fire">Fire</option>
+          <option value="water">Water</option>
+          <option value="grass">Grass</option>
+          <option value="bug">Bug</option>
+          <option value="flying">Flying</option>
+          <option value="poison">Poison</option>
+          <option value="normal">Normal</option>
+          <option value="electric">Electric</option>
+          <option value="ground">Ground</option>
+          <option value="electric">Electric</option>
+          <option value="psychic">Psychic</option>
+          <option value="fighting">Fighting</option>
+          <option value="rock">Rock</option>
+          <option value="ice">Ice</option>
+          <option value="ghost">Ghost</option>
+          <option value="dragon">Dragon</option>
+          <option value="fairy">Fairy</option>
+          <option value="steel">Steel</option>
+          <option value="dark">Dark</option>
+        </select>
+        <label for="select-sort">Ordenar por:</label>
+        <select id="select-sort" data-testid="select-sort" name="sort-property">
+          <option value="">Random</option>
+          <option value="asc">Name A - Z</option>
+          <option value="desc">Name Z - A</option>
+        </select>
+      </div>
+      <div class="button-container">
+        <button id="limpiarBusqueda" data-testid="limpiar-busqueda">
+          Clear Search
+        </button>
+      </div>
+      <h2 data-testid="Average-weight" class="average">
+        Average Pokemon Weight
+      </h2>
     </div>
-      </footer>
-
-  <script src="main.js" type="module"></script>
-</body>
-  
+    <div class="pokemons-container" id="root"></div>
+    <footer>
+      <div id="creadoras">
+        <p> Developed by Paulina González and
+          <a class="pokebola-img" href="https://github.com/Paugdev?tab=repositories" target="_blank">
+            <img src="https://fc03.deviantart.net/fs70/f/2013/019/b/6/pokeball_by_zel_duh-d5s04qj.gif"
+              alt="Pokebola github"/>
+            </p>
+          </a>
+          <p>Massiell Quintanilla (Github Links)
+          <a
+            class="pokebola-img"
+            href="https://github.com/massiquintanilla20?tab=repositories"
+            target="_blank"
+          >
+            <img src="https://fc03.deviantart.net/fs70/f/2013/019/b/6/pokeball_by_zel_duh-d5s04qj.gif" alt="Pokebola github" />
+          </a>
+        </p>
+      </div>
+    </footer>
+    <script src="main.js" type="module"></script>
+  </body>
 </html>
+

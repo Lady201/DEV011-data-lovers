@@ -27,7 +27,7 @@ h1 {
 }
 
 .centrar {
-  display: flex; /* los siguientes tres son necesarios para centrar y acomodar */
+  display: flex;
   justify-content: space-around;
   align-items: center;
 }
@@ -44,16 +44,14 @@ h1 {
   border: 2px solid #ffffff;
   margin: 10px 10px 0px 10px;
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(23, 121, 9, 1) 0%,
-    rgba(90, 206, 86, 1) 3%,
-    rgba(150, 255, 187, 1) 25%,
-    rgba(182, 255, 219, 1) 44%,
-    rgba(2, 238, 144, 0.468312324929972) 89%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(23, 121, 9, 1) 0%,
+      rgba(90, 206, 86, 1) 3%,
+      rgba(150, 255, 187, 1) 25%,
+      rgba(182, 255, 219, 1) 44%,
+      rgba(2, 238, 144, 0.468312324929972) 89%,
+      rgba(0, 212, 255, 1) 100%);
   border-radius: 10px;
   padding: 5px 18px;
   height: auto;
@@ -79,27 +77,24 @@ h1 {
   font-size: 100%;
   border: 2px solid white;
   background: rgb(195, 193, 34);
-  background: linear-gradient(
-    0deg,
-    rgba(195, 193, 34, 1) 0%,
-    rgba(253, 45, 172, 1) 100%
-  );
+
+  background: linear-gradient(0deg,
+      rgba(195, 193, 34, 1) 0%,
+      rgba(253, 45, 172, 1) 100%);
   margin: 0px;
   border-radius: 5px;
 }
 
-#name{
+
+#name {
   border-bottom: 10px;
   background-color: rgb(238, 255, 205);
   margin: 30px 20px;
   position: center;
   border-radius: 5px;
-  display: inline-block;
   width: 30%;
   padding: 7px 9px;
-
 }
-
 
 #select-filter {
   border-bottom: 10px;
@@ -110,14 +105,15 @@ h1 {
   display: inline-block;
   appearance: none;
   width: 50%;
-	cursor: pointer;
+  cursor: pointer;
   padding: 7px 9px;
   outline: 0;
-	border:2px solid rgba(0,0,0,0.2);
+  border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.selectorcontainer{
-  display: flex; /* los siguientes tres son necesarios para centrar y acomodar */
+.selectorcontainer {
+  display: flex;
+  /* los siguientes tres son necesarios para centrar y acomodar */
   align-items: center;
 }
 
@@ -142,6 +138,7 @@ h1 {
   background-repeat: no-repeat;
   background-attachment: scroll;
 }
+
 .average {
   font-size: 120%;
 }
@@ -176,7 +173,40 @@ footer{
   background-color: #3e8e41;
 }
 
-#select-sort{
+/* Estilos para el footer */
+footer {
+  text-align: center;
+}
+
+/* 
+.pokebola-img img {
+  width: 50px;
+  height: 50px;
+  /* Otros estilos deseados */
+.pokebola-img img {
+  width: 50px;
+  height: 50px;
+}
+
+#limpiarBusqueda {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Autour One';
+}
+
+#limpiarBusqueda:hover {
+  background-color: #45a049;
+}
+
+#limpiarBusqueda:active {
+  background-color: #3e8e41;
+}
+
+#select-sort {
   border-bottom: 10px;
   background-color: rgb(238, 255, 205);
   margin: 30px 20px;
@@ -185,8 +215,13 @@ footer{
   display: inline-block;
   appearance: none;
   width: 50%;
-	cursor: pointer;
+
+  cursor: pointer;
   padding: 7px 9px;
   outline: 0;
-	border:2px solid rgba(0,0,0,0.2);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+#creadoras {
+  font-family: 'Autour One';
 }
