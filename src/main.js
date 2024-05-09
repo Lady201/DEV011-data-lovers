@@ -95,14 +95,10 @@ selectOrder.addEventListener("change", (event) => {
 
 limpiarBusqueda.addEventListener("click", function () {
   // Restablece los filtros a su estado predeterminado
-  const filterType = document.querySelector(
-    "select[data-testid='filter-type']"
-  );
+  const filterType = document.querySelector("select[data-testid='filter-type']");
   filterType.selectedIndex = 0;
 
-  const filterResistant = document.querySelector(
-    "select[data-testid='filter-resistant']"
-  );
+  const filterResistant = document.querySelector("select[data-testid='filter-resistant']");
   filterResistant.selectedIndex = 0;
   
 
