@@ -117,4 +117,3 @@ limpiarBusqueda.addEventListener("click", function () {
   // selectOrder.value=''
   pokemonsContainerRoot.appendChild(renderItems(allData))
 });
- CONST= nayeli 
