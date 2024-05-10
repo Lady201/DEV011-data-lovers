@@ -4,6 +4,7 @@
   background-color: rgb(196, 248, 250);
 }
 
+
 .imagenheader {
   width: 600px;
   display: flex;
@@ -76,12 +77,14 @@ h1 {
   font-size: 100%;
   border: 2px solid white;
   background: rgb(195, 193, 34);
+
   background: linear-gradient(0deg,
       rgba(195, 193, 34, 1) 0%,
       rgba(253, 45, 172, 1) 100%);
   margin: 0px;
   border-radius: 5px;
 }
+
 
 #name {
   border-bottom: 10px;
@@ -142,6 +145,32 @@ h1 {
 
 .name {
   border-radius: 10px;
+
+}
+
+footer{
+  text-align: center;
+}
+
+.pokebola-img{
+  width: 40px;
+  height: 60px;
+}
+
+#limpiarBusqueda{
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Autour One';
+}
+#limpiarBusqueda:hover {
+  background-color: #45a049;
+}
+#limpiarBusqueda:active {
+  background-color: #3e8e41;
 }
 
 /* Estilos para el footer */
@@ -186,6 +215,7 @@ footer {
   display: inline-block;
   appearance: none;
   width: 50%;
+
   cursor: pointer;
   padding: 7px 9px;
   outline: 0;

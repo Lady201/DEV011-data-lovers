@@ -35,13 +35,13 @@ window.addEventListener("load", () => {
 //Filtar por tipo
 filterType.addEventListener("change", function () {
   const selectValue = filterType.value;
+
   allData = filterData(allData, "type", selectValue);
   if (allData.length > 0) {
     const pokemons = renderItems(allData);
     pokemonsContainerRoot.innerHTML = ' '
     pokemonsContainerRoot.appendChild(pokemons)
   } else {
-    console.log("contenedor no: ", pokemonsContainerRoot);
     pokemonsContainerRoot.innerHTML = 'No hay coincidencias, "click en limpiar búsqueda"';
   }
 });
@@ -57,6 +57,7 @@ filterResistant.addEventListener("change", function () {
     pokemonsContainerRoot.appendChild(pokemons)
   } else {
     pokemonsContainerRoot.innerHTML = '<p>There is no coincidense, "click on clear search"</p>';
+
   }
 });
 
@@ -86,34 +87,26 @@ selectOrder.addEventListener("change", (event) => {
     pokemonsContainerRoot.appendChild(pokemons)
   } else {
     pokemonsContainerRoot.innerHTML =
+
       '<p>There is no coincidense, "click on clear search"</p>';
+
   }
 });
 
 limpiarBusqueda.addEventListener("click", function () {
   // Restablece los filtros a su estado predeterminado
-  const filterType = document.querySelector(
-    "select[data-testid='filter-type']"
-  );
+  const filterType = document.querySelector("select[data-testid='filter-type']");
   filterType.selectedIndex = 0;
 
-  const filterResistant = document.querySelector(
-    "select[data-testid='filter-resistant']"
-  );
+  const filterResistant = document.querySelector("select[data-testid='filter-resistant']");
   filterResistant.selectedIndex = 0;
-
-  const nameInput = document.querySelector("input[id='name']");
-  nameInput.value = ''; 
-
-  const selectOrder = document.querySelector("select[data-testid='select-sort']");
-  selectOrder.selectedIndex = 0;
-
   
 
   // Vuelve a mostrar todos los Pokémon sin filtros
   allData = pokemons;
   pokemonsContainerRoot.innerHTML = ' '
-  // nameInput.value=''
-  // selectOrder.value=''
+
+  nameInput.value = ''
+  selectOrder.value=''
   pokemonsContainerRoot.appendChild(renderItems(allData))
 });
