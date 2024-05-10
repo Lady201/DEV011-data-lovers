@@ -50,3 +50,16 @@ export const sortData = (data, sortBy, sortOrder) => {
   return cloneData
 }
 
+// describe('array', ()=>{
+
+//   it('verificar array', ()=>{
+//     console.log(typeof fakeData);
+//     expect( typeof fakeData).toBe("object")
+//   })
+
+//   it('filtro', ()=>{
+//     const resultado = filterData(fakeData, 'type', 'water')
+//     expect(resultado).toEqual(resultFilter)
+//   })
+
+// })
